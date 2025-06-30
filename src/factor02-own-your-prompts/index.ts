@@ -55,8 +55,8 @@ async function main() {
       }),
     );
   } else {
-    message = args[0];
-    style = args[1] || 'Talk like a pirate';
+    message = args[0] ?? '';
+    style = args[1] ?? 'Talk like a pirate';
   }
   const agent = createPromptAgent(style);
   const result = await agent.generate(message);
