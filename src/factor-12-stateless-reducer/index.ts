@@ -272,7 +272,7 @@ async function demonstrateComposability(): Promise<void> {
   console.log('Executing composed workflow...');
   const composedRun = composedWorkflow.createRun();
   const result = await composedRun.start({ inputData: { values: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] } });
-  console.log('Composed result:', result.result?.formattedResult);
+  console.log('Composed result:', result);
 }
 
 // Demonstrate error handling in stateless workflows
