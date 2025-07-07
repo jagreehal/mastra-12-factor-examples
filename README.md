@@ -12,10 +12,12 @@ Each factor is implemented as a standalone, production-quality TypeScript exampl
   pnpm install
   ```
 
-- Run any factor example (replace `factorXX` with the desired factor):
+- Run any factor example:
 
   ```sh
-  pnpm exec tsx src/factor01-natural-language-to-tool-calls/index.ts -- 'Your input here'
+  pnpm factor01
+  pnpm factor02
+  # ... or any factor01 through factor12
   ```
 
 ## Model Selection & Configuration
@@ -41,20 +43,20 @@ The `model.ts` file is easy to customise if you want to experiment with differen
 
 ## Factor Index
 
-| #   | Principle                                                                               | Description (short)                                 | Example Command                                                                                              |
-| --- | --------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| 1   | [Natural Language to Tool Calls](src/factor01-natural-language-to-tool-calls/README.md) | LLM parses NL and calls structured tools            | `pnpm exec tsx src/factor01-natural-language-to-tool-calls/index.ts -- 'Who was Ada Lovelace?'`              |
-| 2   | [Own Your Prompts](src/factor02-own-your-prompts/README.md)                             | Prompts as code, versioned and testable             | `pnpm exec tsx src/factor02-own-your-prompts/index.ts -- 'Hello!' 'Talk like a pirate'`                      |
-| 3   | [Own Your Context Window](src/factor03-own-your-context-window/README.md)               | Explicit control over LLM context                   | `pnpm exec tsx src/factor03-own-your-context-window/index.ts -- 'Laurie'`                                    |
-| 4   | [Tools are Structured Outputs](src/factor04-tools-are-structured-outputs/README.md)     | Tools return typed, parseable data                  | `pnpm exec tsx src/factor04-tools-are-structured-outputs/index.ts -- 'Tell me about a famous mathematician'` |
-| 5   | [Unify Execution State](src/factor05-unify-execution-state/README.md)                   | Single source of truth for agent and business state | `pnpm exec tsx src/factor05-unify-execution-state/index.ts -- 'My name is Laurie'`                           |
-| 6   | [Launch/Pause/Resume](src/factor06-launch-pause-resume/README.md)                       | Workflows can be paused and resumed                 | `pnpm exec tsx src/factor06-launch-pause-resume/index.ts -- 42`                                              |
-| 7   | [Contact Humans with Tools](src/factor07-contact-humans-with-tools/README.md)           | Human-in-the-loop as a tool step                    | `pnpm exec tsx src/factor07-contact-humans-with-tools/index.ts -- 'Please confirm my message'`               |
-| 8   | [Own Your Control Flow](src/factor08-own-your-control-flow/README.md)                   | Explicit, testable workflow logic                   | `pnpm exec tsx src/factor08-own-your-control-flow/index.ts -- 'Start the workflow'`                          |
-| 9   | [Compact Errors](src/factor09-compact-errors/README.md)                                 | Errors are summarised, not fatal                    | `pnpm exec tsx src/factor09-compact-errors/index.ts -- 'What is the capital of South Dakota?'`               |
-| 10  | [Small, Focused Agents](src/factor10-small-focused-agents/README.md)                    | Compose agents with single responsibilities         | `pnpm exec tsx src/factor10-small-focused-agents/index.ts -- 'cats'`                                         |
-| 11  | [Trigger from Anywhere](src/factor11-trigger-from-anywhere/README.md)                   | Agents can be invoked by any event                  | `pnpm exec tsx src/factor11-trigger-from-anywhere/index.ts -- 'external_api_call'`                           |
-| 12  | [Stateless Reducer](src/factor12-stateless-reducer/README.md)                           | Pure, deterministic, stateless agent logic          | `pnpm exec tsx src/factor12-stateless-reducer/index.ts -- 1 2 3 4 5`                                         |
+| #   | Principle                                                                               | Description (short)                                 | Example Command                                        |
+| --- | --------------------------------------------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------ |
+| 1   | [Natural Language to Tool Calls](src/factor-01-natural-language-to-tool-calls/README.md) | LLM parses NL and calls structured tools            | `pnpm factor01`                                        |
+| 2   | [Own Your Prompts](src/factor-02-own-your-prompts/README.md)                             | Prompts as code, versioned and testable             | `pnpm factor02`                                        |
+| 3   | [Own Your Context Window](src/factor-03-own-your-context-window/README.md)               | Explicit control over LLM context                   | `pnpm factor03`                                        |
+| 4   | [Tools are Structured Outputs](src/factor-04-tools-are-structured-outputs/README.md)     | Tools return typed, parseable data                  | `pnpm factor04`                                        |
+| 5   | [Unify Execution State](src/factor-05-unify-execution-state/README.md)                   | Single source of truth for agent and business state | `pnpm factor05`                                        |
+| 6   | [Launch/Pause/Resume](src/factor-06-launch-pause-resume/README.md)                       | Workflows can be paused and resumed                 | `pnpm factor06`                                        |
+| 7   | [Contact Humans with Tools](src/factor-07-contact-humans-with-tools/README.md)           | Human-in-the-loop as a tool step                    | `pnpm factor07`                                        |
+| 8   | [Own Your Control Flow](src/factor-08-own-your-control-flow/README.md)                   | Explicit, testable workflow logic                   | `pnpm factor08`                                        |
+| 9   | [Compact Errors](src/factor-09-compact-errors/README.md)                                 | Errors are summarised, not fatal                    | `pnpm factor09`                                        |
+| 10  | [Small, Focused Agents](src/factor-10-small-focused-agents/README.md)                    | Compose agents with single responsibilities         | `pnpm factor10`                                        |
+| 11  | [Trigger from Anywhere](src/factor-11-trigger-from-anywhere/README.md)                   | Agents can be invoked by any event                  | `pnpm factor11`                                        |
+| 12  | [Stateless Reducer](src/factor-12-stateless-reducer/README.md)                           | Pure, deterministic, stateless agent logic          | `pnpm factor12`                                        |
 
 ## How to Use
 

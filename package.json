@@ -7,7 +7,20 @@
   "scripts": {
     "build": "tsc",
     "lint": "eslint src/**/*.ts",
-    "lint:fix": "eslint src/**/*.ts --fix"
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "factor01": "tsx src/factor-01-natural-language-to-tool-calls/index.ts",
+    "factor02": "tsx src/factor-02-own-your-prompts/index.ts",
+    "factor03": "tsx src/factor-03-own-your-context-window/index.ts",
+    "factor04": "tsx src/factor-04-tools-are-structured-outputs/index.ts",
+    "factor05": "tsx src/factor-05-unify-execution-state/index.ts",
+    "factor06": "tsx src/factor-06-launch-pause-resume/index.ts",
+    "factor07": "tsx src/factor-07-contact-humans-with-tools/index.ts",
+    "factor08": "tsx src/factor-08-own-your-control-flow/index.ts",
+    "factor09": "tsx src/factor-09-compact-errors/index.ts",
+    "factor10": "tsx src/factor-10-small-focused-agents/index.ts",
+    "factor11": "tsx src/factor-11-trigger-from-anywhere/index.ts",
+    "factor12": "tsx src/factor-12-stateless-reducer/index.ts"
+
   },
   "author": "Jag Reehal",
   "license": "ISC",
@@ -17,10 +30,14 @@
     "@inquirer/prompts": "^7.6.0",
     "@mastra/core": "^0.10.10",
     "@mastra/libsql": "^0.11.0",
-    "@mastra/memory": "^0.11.0",
+    "@mastra/memory": "^0.11.1",
+    "@types/express": "^5.0.3",
+    "@types/inquirer": "^9.0.8",
     "dotenv": "^17.0.1",
+    "express": "^5.1.0",
+    "inquirer": "^12.7.0",
     "ollama-ai-provider": "^1.2.0",
-    "zod": "^3.25.74"
+    "zod": "^3.25.75"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",
@@ -29,13 +46,13 @@
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^24.0.10",
-    "@typescript-eslint/eslint-plugin": "^8.35.1",
-    "@typescript-eslint/parser": "^8.35.1",
+    "@typescript-eslint/eslint-plugin": "^8.36.0",
+    "@typescript-eslint/parser": "^8.36.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-unicorn": "^59.0.1",
     "prettier": "^3.6.2",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",
-    "typescript-eslint": "^8.35.1"
+    "typescript-eslint": "^8.36.0"
   }
 }
