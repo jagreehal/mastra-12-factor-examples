@@ -6,6 +6,8 @@ This example demonstrates [**Factor 1: Natural Language to Tool Calls** ](https:
 
 This fundamental principle establishes that LLMs should convert natural language into structured, executable tool calls rather than attempting to perform actions directly.
 
+![Factor 1](./factor-01.gif)
+
 ## What Factor 1 Means
 
 Factor 1 establishes the LLM's primary role as a **natural language parser** that translates human intent into structured function calls. The LLM handles "understanding" whilst tools handle "doing" deterministically.
