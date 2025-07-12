@@ -6,6 +6,8 @@ This example demonstrates [**Factor 2: Own Your Prompts** ](https://github.com/h
 
 This principle emphasises treating prompts as explicit, version-controlled code artefacts rather than hidden abstractions.
 
+![Factor 2](./factor-02.gif)
+
 ## What Factor 2 Means
 
 Factor 2 establishes that prompts should be treated with the same rigour as any critical code component. They must be:
