@@ -24,8 +24,8 @@ importers:
         specifier: ^0.11.0
         version: 0.11.0(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))
       '@mastra/memory':
-        specifier: ^0.11.1
-        version: 0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)
+        specifier: ^0.11.2
+        version: 0.11.2(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)
       '@types/express':
         specifier: ^5.0.3
         version: 5.0.3
@@ -759,8 +759,8 @@ packages:
     peerDependencies:
       '@mastra/core': '>=0.10.7-0 <0.11.0-0'
 
-  '@mastra/memory@0.11.1':
-    resolution: {integrity: sha512-6ZMjJ5SmjKXnb4Ov3a+p/kqWr1390KiX0eWixhnWU89GmohIDfDrTG2EeKYkjEwR4WUmebhAQ7EubnyKjfyoxg==}
+  '@mastra/memory@0.11.2':
+    resolution: {integrity: sha512-fVd8vFDbfEU8bmyQ2aPyJp9XZLsFliUw4XLnY+gu2HNTjV1mKivqyeGltE68QPPFP/zPncKUVhcO77nf8z2IYQ==}
     peerDependencies:
       '@mastra/core': '>=0.10.9-0 <0.11.0-0'
 
@@ -1713,8 +1713,8 @@ packages:
     resolution: {integrity: sha512-vZrhV2lRPWDuGoxcmrzRZyxAggPL+qp3WzUrlZD+slFueDiYHxeBa34dUXPuC0RmGKzl4lS5kFJYvKCq9cnNDA==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@upstash/redis@1.35.0':
-    resolution: {integrity: sha512-WUm0Jz1xN4DBDGeJIi2Y0kVsolWRB2tsVds4SExaiLg4wBdHFMB+8IfZtBWr+BP0FvhuBr5G1/VLrJ9xzIWHsg==}
+  '@upstash/redis@1.35.1':
+    resolution: {integrity: sha512-sIMuAMU9IYbE2bkgDby8KLoQKRiBMXn0moXxqLvUmQ7VUu2CvulZLtK8O0x3WQZFvvZhU5sRC2/lOVZdGfudkA==}
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -1745,6 +1745,16 @@ packages:
 
   ai@4.3.16:
     resolution: {integrity: sha512-KUDwlThJ5tr2Vw0A1ZkbDKNME3wzWhuVfAOwIvFUzl1TPVDFAXDFTXio3p+jaKneB+dKNCvFFlolYmmgHttG1g==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      react: ^18 || ^19 || ^19.0.0-rc
+      zod: ^3.23.8
+    peerDependenciesMeta:
+      react:
+        optional: true
+
+  ai@4.3.17:
+    resolution: {integrity: sha512-uWqIQ94Nb1GTYtYElGHegJMOzv3r2mCKNFlKrqkft9xrfvIahTI5OdcnD5U9612RFGuUNGmSDTO1/YRNFXobaQ==}
     engines: {node: '>=18'}
     peerDependencies:
       react: ^18 || ^19 || ^19.0.0-rc
@@ -2682,18 +2692,18 @@ packages:
     resolution: {integrity: sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==}
     engines: {node: '>=16'}
 
-  pg-cloudflare@1.2.5:
-    resolution: {integrity: sha512-OOX22Vt0vOSRrdoUPKJ8Wi2OpE/o/h9T8X1s4qSkCedbNah9ei2W2765be8iMVxQUsvgT7zIAT2eIa9fs5+vtg==}
+  pg-cloudflare@1.2.7:
+    resolution: {integrity: sha512-YgCtzMH0ptvZJslLM1ffsY4EuGaU0cx4XSdXLRFae8bPP4dS5xL1tNB3k2o/N64cHJpwU7dxKli/nZ2lUa5fLg==}
 
-  pg-connection-string@2.9.0:
-    resolution: {integrity: sha512-P2DEBKuvh5RClafLngkAuGe9OUlFV7ebu8w1kmaaOgPcpJd1RIFh7otETfI6hAR8YupOLFTY7nuvvIn7PLciUQ==}
+  pg-connection-string@2.9.1:
+    resolution: {integrity: sha512-nkc6NpDcvPVpZXxrreI/FOtX3XemeLl8E0qFr6F2Lrm/I8WOnaWNhIPK2Z7OHpw7gh5XJThi6j6ppgNoaT1w4w==}
 
   pg-int8@1.0.1:
     resolution: {integrity: sha512-WCtabS6t3c8SkpDBUlb1kjOs7l66xsGdKpIPZsg4wR+B3+u9UAum2odSsF9tnvxg80h4ZxLWMy4pRjOsFIqQpw==}
     engines: {node: '>=4.0.0'}
 
-  pg-pool@3.10.0:
-    resolution: {integrity: sha512-DzZ26On4sQ0KmqnO34muPcmKbhrjmyiO4lCCR0VwEd7MjmiKf5NTg/6+apUEu0NF7ESa37CGzFxH513CoUmWnA==}
+  pg-pool@3.10.1:
+    resolution: {integrity: sha512-Tu8jMlcX+9d8+QVzKIvM/uJtp07PKr82IUOYEphaWcoBhIYkoHpLXN3qO59nAI11ripznDsEzEv8nUxBVWajGg==}
     peerDependencies:
       pg: '>=8.0'
 
@@ -2704,9 +2714,9 @@ packages:
     resolution: {integrity: sha512-qTAAlrEsl8s4OiEQY69wDvcMIdQN6wdz5ojQiOy6YRMuynxenON0O5oCpJI6lshc6scgAY8qvJ2On/p+CXY0GA==}
     engines: {node: '>=4'}
 
-  pg@8.16.0:
-    resolution: {integrity: sha512-7SKfdvP8CTNXjMUzfcVTaI+TDzBEeaUnVwiVGZQD1Hh33Kpev7liQba9uLd4CfN8r9mCVsD0JIpq03+Unpz+kg==}
-    engines: {node: '>= 8.0.0'}
+  pg@8.16.3:
+    resolution: {integrity: sha512-enxc1h0jA/aq5oSDMvqyW3q89ra6XIIDZgCX9vkMrnz5DFTw/Ny3Li2lFQ+pt3L6MCgm/5o2o8HW9hiJji+xvw==}
+    engines: {node: '>= 16.0.0'}
     peerDependencies:
       pg-native: '>=3.0.1'
     peerDependenciesMeta:
@@ -4154,14 +4164,14 @@ snapshots:
       - bufferutil
       - utf-8-validate
 
-  '@mastra/memory@0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)':
+  '@mastra/memory@0.11.2(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)':
     dependencies:
       '@mastra/core': 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
-      '@upstash/redis': 1.35.0
-      ai: 4.3.16(react@19.1.0)(zod@3.25.76)
+      '@upstash/redis': 1.35.1
+      ai: 4.3.17(react@19.1.0)(zod@3.25.76)
       js-tiktoken: 1.0.20
-      pg: 8.16.0
-      pg-pool: 3.10.0(pg@8.16.0)
+      pg: 8.16.3
+      pg-pool: 3.10.1(pg@8.16.3)
       postgres: 3.4.7
       redis: 4.7.1
       xxhash-wasm: 1.1.0
@@ -5487,7 +5497,7 @@ snapshots:
       '@typescript-eslint/types': 8.36.0
       eslint-visitor-keys: 4.2.1
 
-  '@upstash/redis@1.35.0':
+  '@upstash/redis@1.35.1':
     dependencies:
       uncrypto: 0.1.3
 
@@ -5513,6 +5523,18 @@ snapshots:
   agent-base@7.1.3: {}
 
   ai@4.3.16(react@19.1.0)(zod@3.25.76):
+    dependencies:
+      '@ai-sdk/provider': 1.1.3
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.25.76)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
+      '@opentelemetry/api': 1.9.0
+      jsondiffpatch: 0.6.0
+      zod: 3.25.76
+    optionalDependencies:
+      react: 19.1.0
+
+  ai@4.3.17(react@19.1.0)(zod@3.25.76):
     dependencies:
       '@ai-sdk/provider': 1.1.3
       '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
@@ -6418,16 +6440,16 @@ snapshots:
 
   path-to-regexp@8.2.0: {}
 
-  pg-cloudflare@1.2.5:
+  pg-cloudflare@1.2.7:
     optional: true
 
-  pg-connection-string@2.9.0: {}
+  pg-connection-string@2.9.1: {}
 
   pg-int8@1.0.1: {}
 
-  pg-pool@3.10.0(pg@8.16.0):
+  pg-pool@3.10.1(pg@8.16.3):
     dependencies:
-      pg: 8.16.0
+      pg: 8.16.3
 
   pg-protocol@1.10.3: {}
 
@@ -6439,15 +6461,15 @@ snapshots:
       postgres-date: 1.0.7
       postgres-interval: 1.2.0
 
-  pg@8.16.0:
+  pg@8.16.3:
     dependencies:
-      pg-connection-string: 2.9.0
-      pg-pool: 3.10.0(pg@8.16.0)
+      pg-connection-string: 2.9.1
+      pg-pool: 3.10.1(pg@8.16.3)
       pg-protocol: 1.10.3
       pg-types: 2.2.0
       pgpass: 1.0.5
     optionalDependencies:
-      pg-cloudflare: 1.2.5
+      pg-cloudflare: 1.2.7
 
   pgpass@1.0.5:
     dependencies:
