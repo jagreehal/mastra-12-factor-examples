@@ -10,22 +10,22 @@ importers:
     dependencies:
       '@ai-sdk/groq':
         specifier: ^1.2.9
-        version: 1.2.9(zod@3.25.75)
+        version: 1.2.9(zod@3.25.76)
       '@ai-sdk/mistral':
         specifier: ^1.2.8
-        version: 1.2.8(zod@3.25.75)
+        version: 1.2.8(zod@3.25.76)
       '@inquirer/prompts':
         specifier: ^7.6.0
         version: 7.6.0(@types/node@24.0.10)
       '@mastra/core':
         specifier: ^0.10.10
-        version: 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75)
+        version: 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
       '@mastra/libsql':
         specifier: ^0.11.0
-        version: 0.11.0(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75))
+        version: 0.11.0(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))
       '@mastra/memory':
         specifier: ^0.11.1
-        version: 0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75))(react@19.1.0)
+        version: 0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)
       '@types/express':
         specifier: ^5.0.3
         version: 5.0.3
@@ -43,10 +43,10 @@ importers:
         version: 12.7.0(@types/node@24.0.10)
       ollama-ai-provider:
         specifier: ^1.2.0
-        version: 1.2.0(zod@3.25.75)
+        version: 1.2.0(zod@3.25.76)
       zod:
-        specifier: ^3.25.75
-        version: 3.25.75
+        specifier: ^3.25.76
+        version: 3.25.76
     devDependencies:
       '@eslint/js':
         specifier: ^9.30.1
@@ -2496,6 +2496,7 @@ packages:
 
   libsql@0.5.13:
     resolution: {integrity: sha512-5Bwoa/CqzgkTwySgqHA5TsaUDRrdLIbdM4egdPcaAnqO3aC+qAgS6BwdzuZwARA5digXwiskogZ8H7Yy4XfdOg==}
+    cpu: [x64, arm64, wasm32, arm]
     os: [darwin, linux, win32]
 
   locate-path@6.0.0:
@@ -3179,50 +3180,50 @@ packages:
     peerDependencies:
       zod: ^3.24.1
 
-  zod@3.25.75:
-    resolution: {integrity: sha512-OhpzAmVzabPOL6C3A3gpAifqr9MqihV/Msx3gor2b2kviCgcb+HM9SEOpMWwwNp9MRunWnhtAKUoo0AHhjyPPg==}
+  zod@3.25.76:
+    resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
 snapshots:
 
-  '@ai-sdk/groq@1.2.9(zod@3.25.75)':
+  '@ai-sdk/groq@1.2.9(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      zod: 3.25.75
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      zod: 3.25.76
 
-  '@ai-sdk/mistral@1.2.8(zod@3.25.75)':
+  '@ai-sdk/mistral@1.2.8(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      zod: 3.25.75
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      zod: 3.25.76
 
-  '@ai-sdk/provider-utils@2.2.8(zod@3.25.75)':
+  '@ai-sdk/provider-utils@2.2.8(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
       nanoid: 3.3.11
       secure-json-parse: 2.7.0
-      zod: 3.25.75
+      zod: 3.25.76
 
   '@ai-sdk/provider@1.1.3':
     dependencies:
       json-schema: 0.4.0
 
-  '@ai-sdk/react@1.2.12(react@19.1.0)(zod@3.25.75)':
+  '@ai-sdk/react@1.2.12(react@19.1.0)(zod@3.25.76)':
     dependencies:
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.75)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
       react: 19.1.0
       swr: 2.3.4(react@19.1.0)
       throttleit: 2.1.0
     optionalDependencies:
-      zod: 3.25.75
+      zod: 3.25.76
 
-  '@ai-sdk/ui-utils@1.2.11(zod@3.25.75)':
+  '@ai-sdk/ui-utils@1.2.11(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      zod: 3.25.75
-      zod-to-json-schema: 3.24.6(zod@3.25.75)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      zod: 3.25.76
+      zod-to-json-schema: 3.24.6(zod@3.25.76)
 
   '@apidevtools/json-schema-ref-parser@11.9.3':
     dependencies:
@@ -4092,12 +4093,12 @@ snapshots:
   '@libsql/win32-x64-msvc@0.5.13':
     optional: true
 
-  '@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75)':
+  '@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.75)
-      '@mastra/schema-compat': 0.10.3(ai@4.3.16(react@19.1.0)(zod@3.25.75))(zod@3.25.75)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
+      '@mastra/schema-compat': 0.10.3(ai@4.3.16(react@19.1.0)(zod@3.25.76))(zod@3.25.76)
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/auto-instrumentations-node': 0.59.0(@opentelemetry/api@1.9.0)(@opentelemetry/core@2.0.1(@opentelemetry/api@1.9.0))
       '@opentelemetry/core': 2.0.1(@opentelemetry/api@1.9.0)
@@ -4112,12 +4113,12 @@ snapshots:
       '@opentelemetry/sdk-trace-node': 2.0.1(@opentelemetry/api@1.9.0)
       '@opentelemetry/semantic-conventions': 1.34.0
       '@sindresorhus/slugify': 2.2.1
-      ai: 4.3.16(react@19.1.0)(zod@3.25.75)
+      ai: 4.3.16(react@19.1.0)(zod@3.25.76)
       cohere-ai: 7.17.1
       date-fns: 3.6.0
       dotenv: 16.6.1
       hono: 4.8.4
-      hono-openapi: 0.4.8(hono@4.8.4)(openapi-types@12.1.3)(zod@3.25.75)
+      hono-openapi: 0.4.8(hono@4.8.4)(openapi-types@12.1.3)(zod@3.25.76)
       json-schema: 0.4.0
       json-schema-to-zod: 2.6.1
       pino: 9.7.0
@@ -4125,8 +4126,8 @@ snapshots:
       radash: 12.1.1
       sift: 17.1.3
       xstate: 5.20.1
-      zod: 3.25.75
-      zod-to-json-schema: 3.24.6(zod@3.25.75)
+      zod: 3.25.76
+      zod-to-json-schema: 3.24.6(zod@3.25.76)
     transitivePeerDependencies:
       - '@hono/arktype-validator'
       - '@hono/effect-validator'
@@ -4145,38 +4146,38 @@ snapshots:
       - valibot
       - zod-openapi
 
-  '@mastra/libsql@0.11.0(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75))':
+  '@mastra/libsql@0.11.0(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))':
     dependencies:
       '@libsql/client': 0.15.9
-      '@mastra/core': 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75)
+      '@mastra/core': 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
 
-  '@mastra/memory@0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75))(react@19.1.0)':
+  '@mastra/memory@0.11.1(@mastra/core@0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76))(react@19.1.0)':
     dependencies:
-      '@mastra/core': 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.75)
+      '@mastra/core': 0.10.10(openapi-types@12.1.3)(react@19.1.0)(zod@3.25.76)
       '@upstash/redis': 1.35.0
-      ai: 4.3.16(react@19.1.0)(zod@3.25.75)
+      ai: 4.3.16(react@19.1.0)(zod@3.25.76)
       js-tiktoken: 1.0.20
       pg: 8.16.0
       pg-pool: 3.10.0(pg@8.16.0)
       postgres: 3.4.7
       redis: 4.7.1
       xxhash-wasm: 1.1.0
-      zod: 3.25.75
-      zod-to-json-schema: 3.24.6(zod@3.25.75)
+      zod: 3.25.76
+      zod-to-json-schema: 3.24.6(zod@3.25.76)
     transitivePeerDependencies:
       - pg-native
       - react
 
-  '@mastra/schema-compat@0.10.3(ai@4.3.16(react@19.1.0)(zod@3.25.75))(zod@3.25.75)':
+  '@mastra/schema-compat@0.10.3(ai@4.3.16(react@19.1.0)(zod@3.25.76))(zod@3.25.76)':
     dependencies:
-      ai: 4.3.16(react@19.1.0)(zod@3.25.75)
+      ai: 4.3.16(react@19.1.0)(zod@3.25.76)
       json-schema: 0.4.0
-      zod: 3.25.75
+      zod: 3.25.76
       zod-from-json-schema: 0.0.5
-      zod-to-json-schema: 3.24.6(zod@3.25.75)
+      zod-to-json-schema: 3.24.6(zod@3.25.76)
 
   '@neon-rs/load@0.0.4': {}
 
@@ -5511,15 +5512,15 @@ snapshots:
 
   agent-base@7.1.3: {}
 
-  ai@4.3.16(react@19.1.0)(zod@3.25.75):
+  ai@4.3.16(react@19.1.0)(zod@3.25.76):
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
-      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.25.75)
-      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.75)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
+      '@ai-sdk/react': 1.2.12(react@19.1.0)(zod@3.25.76)
+      '@ai-sdk/ui-utils': 1.2.11(zod@3.25.76)
       '@opentelemetry/api': 1.9.0
       jsondiffpatch: 0.6.0
-      zod: 3.25.75
+      zod: 3.25.76
     optionalDependencies:
       react: 19.1.0
 
@@ -6110,13 +6111,13 @@ snapshots:
 
   help-me@5.0.0: {}
 
-  hono-openapi@0.4.8(hono@4.8.4)(openapi-types@12.1.3)(zod@3.25.75):
+  hono-openapi@0.4.8(hono@4.8.4)(openapi-types@12.1.3)(zod@3.25.76):
     dependencies:
       json-schema-walker: 2.0.0
       openapi-types: 12.1.3
     optionalDependencies:
       hono: 4.8.4
-      zod: 3.25.75
+      zod: 3.25.76
 
   hono@4.8.4: {}
 
@@ -6351,13 +6352,13 @@ snapshots:
 
   object-inspect@1.13.4: {}
 
-  ollama-ai-provider@1.2.0(zod@3.25.75):
+  ollama-ai-provider@1.2.0(zod@3.25.76):
     dependencies:
       '@ai-sdk/provider': 1.1.3
-      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.75)
+      '@ai-sdk/provider-utils': 2.2.8(zod@3.25.76)
       partial-json: 0.1.7
     optionalDependencies:
-      zod: 3.25.75
+      zod: 3.25.76
 
   on-exit-leak-free@2.1.2: {}
 
@@ -6903,10 +6904,10 @@ snapshots:
 
   zod-from-json-schema@0.0.5:
     dependencies:
-      zod: 3.25.75
+      zod: 3.25.76
 
-  zod-to-json-schema@3.24.6(zod@3.25.75):
+  zod-to-json-schema@3.24.6(zod@3.25.76):
     dependencies:
-      zod: 3.25.75
+      zod: 3.25.76
 
-  zod@3.25.75: {}
+  zod@3.25.76: {}
