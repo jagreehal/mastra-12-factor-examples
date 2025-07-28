@@ -29,7 +29,7 @@
     "@ai-sdk/mistral": "^1.2.8",
     "@inquirer/prompts": "^7.7.0",
     "@mastra/core": "^0.10.15",
-    "@mastra/libsql": "^0.11.0",
+    "@mastra/libsql": "^0.11.2",
     "@mastra/memory": "^0.11.3",
     "@types/express": "^5.0.3",
     "@types/inquirer": "^9.0.8",
