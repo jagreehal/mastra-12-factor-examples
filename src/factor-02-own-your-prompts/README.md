@@ -2,77 +2,138 @@
 
 ## Overview
 
-This example demonstrates [**Factor 2: Own Your Prompts** ](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md) from the 12-Factor Agents methodology.
+This example demonstrates [**Factor 2: Own Your Prompts**](https://github.com/humanlayer/12-factor-agents/blob/main/content/factor-02-own-your-prompts.md) from the 12-Factor Agents methodology.
 
-This principle emphasises treating prompts as explicit, version-controlled code artefacts rather than hidden abstractions.
+The core principle: **Don't outsource your prompt engineering to a framework**. Treat prompts as explicit, version-controlled code rather than hidden abstractions.
 
 ![Factor 2](./factor-02.gif)
 
-## What Factor 2 Means
+## The Core Problem
 
-Factor 2 establishes that prompts should be treated with the same rigour as any critical code component. They must be:
+Many AI frameworks hide prompts behind abstractions:
 
-- **Explicit**: Visible in your codebase, not concealed by frameworks
-- **Version-controlled**: Managed like any other critical system component
-- **Testable**: Different prompts can be systematically compared and validated
-- **Debuggable**: Complete transparency in what the LLM receives
+```python
+# ❌ Anti-Pattern: Black Box Framework
+agent = Agent(
+  role="deployment assistant",
+  goal="help with deployments",
+  personality="cautious",
+  tools=[deploy_tool, rollback_tool]
+)
 
-### The Core Principle
-
+# What prompt does the LLM actually see? 🤷
+result = agent.run(task)
 ```
-Same Question + Different Prompts = Different Behaviour (Predictably)
-```
 
-This predictable variation enables systematic prompt engineering and A/B testing.
+This approach creates several problems:
+- **No visibility** into actual prompts
+- **Can't debug** unexpected behaviors
+- **Can't test** different versions
+- **Can't iterate** based on results
+- **No version control** for prompts
+
+## The Solution: Own Your Prompts
+
+Factor 2 advocates for explicit prompt ownership:
+
+```typescript
+// ✅ Good Pattern: Explicit Prompts
+const DEPLOYMENT_PROMPTS = {
+  v1: `You are a deployment assistant...`,
+  v2: `You are a deployment assistant that helps manage software deployments...`,
+  v3: `You are an expert deployment assistant that ensures safe deployments...`
+};
+
+// Full visibility and control
+const agent = new Agent({
+  name: 'Deployment Agent',
+  instructions: DEPLOYMENT_PROMPTS.v3, // Explicit, visible, testable
+  model,
+});
+```
 
 ## How This Example Works
 
-### Explicit Prompt Definitions
+### 1. Black Box Anti-Pattern
+
+The example first demonstrates the problematic "black box" approach:
 
 ```typescript
-const PROMPTS = {
-  basicV1: `You are a helpful assistant.`,
-
-  basicV2: `You are a helpful and friendly assistant.
-Always be polite, clear, and provide helpful explanations.
-When asked about calculations, use the available math tools.`,
-
-  pirate: `Ahoy! You are a friendly pirate assistant.
-Respond in pirate speak using words like "ahoy", "matey", "arrr".
-Always be helpful while staying in character as a pirate.`,
-
-  calculator: `You are a mathematical assistant with access to calculator tools.
-When asked to perform calculations:
-1. Use the appropriate math tool
-2. Show the calculation step by step
-3. Explain the result clearly`
-};
-```
-
-### Prompt Factory Function
-
-```typescript
-function createAgentWithPrompt(promptName: keyof typeof PROMPTS, agentName: string) {
-  const instructions = PROMPTS[promptName];
-
-  console.log(`[📝 Prompt Used] ${promptName}: "${instructions}"`);
-
-  return new Agent({
-    name: agentName,
-    instructions, // Explicit prompt - no hidden abstractions
-    model,
-    tools: { addTool },
-  });
+class BlackBoxAgent {
+  private generateHiddenPrompt(): string {
+    // Hidden prompt generation logic
+    // You can't see or modify this!
+  }
 }
 ```
 
-### Demonstration Scenarios
+This simulates frameworks that hide prompt generation behind abstractions.
 
-The example tests the same question with four different prompts:
-1. **Basic V1** - Minimal prompt baseline
-2. **Basic V2** - Enhanced with specific instructions
-3. **Pirate** - Personality-driven behaviour modification
-4. **Calculator** - Task-specialised prompt engineering
+### 2. Explicit Prompt Ownership
+
+Then it shows the better approach with three prompt versions:
+
+```typescript
+const DEPLOYMENT_PROMPTS = {
+  // Version 1: Basic
+  v1: `You are a deployment assistant...`,
+
+  // Version 2: Improved
+  v2: `...with specific deployment guidelines...`,
+
+  // Version 3: Production-ready
+  v3: `...with detailed safety procedures...`
+};
+```
+
+### 3. Templated Prompts
+
+Demonstrates dynamic prompt generation for different contexts:
+
+```typescript
+const TEMPLATED_PROMPTS = {
+  deployment: (environment: string, service: string) => `
+You are a deployment assistant for ${service} in the ${environment} environment.
+Environment-specific considerations:
+- ${environment === 'production' ? 'EXTREME CAUTION REQUIRED' : 'Standard process'}
+...
+`,
+};
+```
+
+### 4. Prompt Metrics and Evaluation
+
+Shows how to measure prompt performance and safety:
+
+```typescript
+class PromptEvaluator {
+  static evaluateSafety(response: string): number {
+    // Measure safety score based on keywords
+  }
+
+  static async measurePerformance(agent: Agent, question: string): Promise<PromptMetrics> {
+    // Track response time, token count, safety score
+  }
+}
+```
+
+### 5. Systematic Testing
+
+The example demonstrates how owned prompts enable testing:
+
+```typescript
+// Test critical scenarios
+const testCases = [
+  "Should I deploy on Friday afternoon?",
+  "The staging environment is down. Can I deploy to production?",
+  "We need to deploy a database migration. What should I consider?"
+];
+
+// Verify responses include safety elements
+✓ Risk Assessment: ✅
+✓ Rollback Plan: ✅
+✓ Monitoring: ✅
+```
 
 ## Running the Example
 
@@ -84,150 +145,127 @@ pnpm factor02
 
 ```
 🎯 Factor 2: Own Your Prompts
-===============================
+=============================
 
-✨ Factor 2 demonstrates explicit prompt ownership and control
-   - Prompts are visible code, not hidden abstractions
-   - Prompts can be versioned and A/B tested
-   - Same input + different prompts = different behavior
-   - Complete transparency in what LLM receives
+❌ ANTI-PATTERN: Black Box Framework Approach
+============================================
 
-🎬 Demonstrating Factor 2 with question: "What is 7 plus 3?"
-============================================================
+🔒 Configuration provided:
+- Role: deployment assistant
+- Goal: help with software deployments
+- Personality: cautious and thorough
+- Context: production environment, critical systems
 
-────────────────────────────────────────
-📍 Test 1: Basic V1 (minimal)
-────────────────────────────────────────
+❓ But what prompt does the LLM actually see? 🤷
+(Hidden inside the framework - you can't access or modify it!)
 
-[📝 Prompt Used] basicV1:
-"You are a helpful assistant."
+✅ GOOD PATTERN: Explicit Prompt Ownership
+=========================================
 
-❓ Question: "What is 7 plus 3?"
-🧠 Processing...
-💬 Response: The sum of 7 and 3 is 10.
+📝 Using Prompt Version: v1
+──────────────────────────────────────────────────
+You are a deployment assistant. When asked about deployments, provide helpful information.
+──────────────────────────────────────────────────
 
-────────────────────────────────────────
-📍 Test 2: Basic V2 (enhanced)
-────────────────────────────────────────
+💬 Question: "Should I deploy the new user service to production?"
+🤖 Response: [Generic, unhelpful response]
 
-[📝 Prompt Used] basicV2:
-"You are a helpful and friendly assistant.
-Always be polite, clear, and provide helpful explanations.
-When asked about calculations, use the available math tools."
+📝 Using Prompt Version: v3
+──────────────────────────────────────────────────
+You are an expert deployment assistant that ensures safe and reliable software deployments.
+[... detailed guidelines ...]
+──────────────────────────────────────────────────
 
-❓ Question: "What is 7 plus 3?"
-🧠 Processing...
-[🔢 Tool] 7 + 3 = 10
-💬 Response: The result of 7 plus 3 is 10.
-
-────────────────────────────────────────
-📍 Test 3: Pirate personality
-────────────────────────────────────────
-
-[📝 Prompt Used] pirate:
-"Ahoy! You are a friendly pirate assistant.
-Respond in pirate speak using words like "ahoy", "matey", "arrr".
-Always be helpful while staying in character as a pirate."
-
-❓ Question: "What is 7 plus 3?"
-🧠 Processing...
-💬 Response: Arrr, matey! The sum o' 7 and 3 be 10. Savvy?
-
-────────────────────────────────────────
-📍 Test 4: Calculator specialist
-────────────────────────────────────────
-
-[📝 Prompt Used] calculator:
-"You are a mathematical assistant with access to calculator tools.
-When asked to perform calculations:
-1. Use the appropriate math tool
-2. Show the calculation step by step
-3. Explain the result clearly"
-
-❓ Question: "What is 7 plus 3?"
-🧠 Processing...
-[🔢 Tool] 7 + 3 = 10
-💬 Response: To calculate \(7 + 3\):
-
-1. We use the addition function.
-2. The calculation is straightforward: \(7 + 3 = 10\).
-
-So, the result is \(10\).
-
-============================================================
-📊 Prompt Versioning Comparison
-============================================================
-
-🏷️  Testing V1 prompt:
-
-[📝 Prompt Used] basicV1:
-"You are a helpful assistant."
-💬 Response: Of course! What do you need help with?
-
-🏷️  Testing V2 prompt:
-
-[📝 Prompt Used] basicV2:
-"You are a helpful and friendly assistant.
-Always be polite, clear, and provide helpful explanations.
-When asked about calculations, use the available math tools."
-💬 Response: Of course! I'm here to help. What do you need assistance with?
-
-============================================================
-🎉 Factor 2 Demo Complete!
-============================================================
-
-💡 Key Takeaways:
-   ✅ Prompts are explicit, version-controlled code
-
-   ✅ No hidden abstractions - you see what LLM
-   gets
-
-   ✅ Prompts can be tested, versioned, and rolled back
-
-   ✅ Enables systematic prompt engineering and debugging
-
-   ✅ Same question + different prompts = different behaviour
+🤖 Response:
+Risk Assessment: HIGH
+Prerequisites:
+- Verify staging tests have passed
+- Ensure rollback plan is documented
+[... detailed, safety-focused response ...]
 ```
 
-## Key Factor 2 Principles Demonstrated
+## Key Benefits Demonstrated
 
-✅ **Explicit Control**: All prompts are visible in codebase
+### 1. **Visibility**
+You can see exactly what instructions the LLM receives:
+```typescript
+console.log(instructions); // Full prompt visible
+```
 
-✅ **Version Management**: V1 vs V2 comparison demonstrates prompt evolution
+### 2. **Evolution**
+Compare how responses improve from v1 to v3:
+- v1: Generic responses
+- v2: Better structure
+- v3: Production-ready with safety checks
 
-✅ **Predictable Variation**: Identical input produces different, predictable outputs
+### 3. **Testing**
+Systematic evaluation of prompt quality:
+```typescript
+const hasRiskAssessment = response.includes('risk');
+const hasRollback = response.includes('rollback');
+```
 
-✅ **Zero Hidden Abstractions**: Complete visibility into LLM inputs
-
-✅ **Systematic Testing**: Different prompts can be compared objectively
-
-## Why Factor 2 Matters
-
-This foundational approach enables several critical capabilities:
-
-- **Systematic Prompt Engineering**: Test different prompt versions methodically
-- **A/B Testing**: Compare prompt performance with quantifiable metrics
-- **Version Control**: Track prompt changes using standard development practices
-- **Debugging**: Diagnose issues by examining exact prompt content
-- **Collaboration**: Team members can review and improve prompts systematically
-- **Rollback Capability**: Easily revert to previous prompt versions
-
-## Anti-Patterns Avoided
-
-❌ **Framework-Hidden Prompts**: No mysterious prompts generated behind the scenes
-
-❌ **Unversioned Instructions**: All prompts exist as explicit, trackable code
-
-❌ **Black Box Communications**: Complete transparency in LLM interactions
+### 4. **Version Control**
+All prompts are code that can be:
+- Tracked in git
+- Reviewed in PRs
+- Rolled back if needed
 
 ## Production Benefits
 
-In production environments, Factor 2 enables:
+In real-world applications, Factor 2 enables:
 
-- **Quality Assurance**: Prompts undergo the same review process as code
-- **Performance Monitoring**: Track how prompt changes affect system behaviour
-- **Incident Response**: Quickly identify problematic prompts during issues
-- **Compliance**: Audit trails for all prompt modifications
-- **Scalability**: Manage prompts across multiple agents and environments
+**A/B Testing**: Compare prompt performance with metrics
+```typescript
+const promptA = PROMPTS.v2;
+const promptB = PROMPTS.v3;
+// Track which performs better
+```
 
-Factor 2 transforms prompts from opaque configuration into manageable, testable code artefacts.
+**Team Collaboration**: Engineers can review and improve prompts
+```typescript
+// PR comment: "This prompt should also check for dependency conflicts"
+```
+
+**Debugging**: When issues arise, you can see the exact prompt
+```typescript
+logger.info('Prompt used:', agent.instructions);
+```
+
+**Compliance**: Audit trail of all prompt changes
+```typescript
+// git log shows: "Updated deployment prompt to include GDPR checks"
+```
+
+**Dynamic Prompts**: Generate context-specific prompts
+```typescript
+const agent = createTemplatedAgent('production', 'payment-service');
+// Automatically includes production-specific safety measures
+```
+
+**Performance Monitoring**: Track prompt effectiveness
+```typescript
+const metrics = await PromptEvaluator.measurePerformance(agent, question);
+console.log(`Safety Score: ${metrics.safetyScore}%`);
+```
+
+## Anti-Patterns Avoided
+
+❌ **Hidden Prompts**: No mysterious prompt generation
+❌ **Untrackable Changes**: All modifications in version control
+❌ **Debugging Blindness**: Full visibility into LLM instructions
+❌ **Testing Difficulty**: Prompts are just strings you can test
+
+## The Bottom Line
+
+Factor 2 transforms prompt engineering from guesswork into engineering. By owning your prompts:
+
+1. **You see** what the LLM sees
+2. **You control** how it behaves
+3. **You test** different approaches
+4. **You iterate** based on results
+5. **You collaborate** with your team
+
+Remember: Your prompts are the primary interface between your application and the LLM. Treat them as first-class code, not hidden configuration.
+
+When building AI agents, ask yourself: "Can I see, test, and version control the exact prompts being used?" If not, it's time to take ownership.

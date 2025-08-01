@@ -20,7 +20,6 @@
     "factor10": "tsx src/factor-10-small-focused-agents/index.ts",
     "factor11": "tsx src/factor-11-trigger-from-anywhere/index.ts",
     "factor12": "tsx src/factor-12-stateless-reducer/index.ts"
-
   },
   "author": "Jag Reehal",
   "license": "ISC",
@@ -40,19 +39,19 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@eslint/js": "^9.32.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.5.1",
+    "@eslint/js": "^9.33.0",
+    "@ianvs/prettier-plugin-sort-imports": "^4.6.1",
     "@total-typescript/ts-reset": "^0.6.1",
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/eslint-config-prettier": "^6.11.3",
-    "@types/node": "^24.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.36.0",
-    "@typescript-eslint/parser": "^8.38.0",
+    "@types/node": "^24.2.1",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-unicorn": "^59.0.1",
+    "eslint-plugin-unicorn": "^60.0.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.3",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.38.0"
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.39.0"
   }
 }
