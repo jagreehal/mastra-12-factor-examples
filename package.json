@@ -24,7 +24,7 @@
   "author": "Jag Reehal",
   "license": "ISC",
   "dependencies": {
-    "@ai-sdk/groq": "^2.0.5",
+    "@ai-sdk/groq": "^2.0.10",
     "@ai-sdk/mistral": "^2.0.5",
     "@inquirer/prompts": "^7.7.0",
     "@mastra/core": "^0.13.2",
