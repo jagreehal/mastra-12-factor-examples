@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@ai-sdk/groq':
-        specifier: ^2.0.5
-        version: 2.0.5(zod@3.25.76)
+        specifier: ^2.0.10
+        version: 2.0.10(zod@3.25.76)
       '@ai-sdk/mistral':
         specifier: ^2.0.5
         version: 2.0.5(zod@3.25.76)
@@ -97,8 +97,8 @@ packages:
     resolution: {integrity: sha512-VTDuRS5V0ATbJ/LkaQlisMnTAeYKXAK6scMguVBstf+KIBQ7HIuKhiXLv+G/hvejkV+THoXzoNifInAkU81P1g==}
     engines: {node: '>=18'}
 
-  '@ai-sdk/groq@2.0.5':
-    resolution: {integrity: sha512-zF9N4Nse7nw3hAZ+DVXloKQwBf6cD6f6WrrnPbeHqi9U6qSS6Wws1V4s/KGbajzXpVo6u/Ps2cKAcNSE1R65HA==}
+  '@ai-sdk/groq@2.0.10':
+    resolution: {integrity: sha512-y74lbQn2c251TdjF85g1XrjBO/U6ryaq4YVolh2HoqVQf6GimSt8RnPzvTnoAq/2Y/8lFjyWiCmdMSZbEngwqQ==}
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.25.76 || ^4
@@ -114,12 +114,6 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       zod: ^3.23.8
-
-  '@ai-sdk/provider-utils@3.0.1':
-    resolution: {integrity: sha512-/iP1sKc6UdJgGH98OCly7sWJKv+J9G47PnTjIj40IJMUQKwDrUMyf7zOOfRtPwSuNifYhSoJQ4s1WltI65gJ/g==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      zod: ^3.25.76 || ^4
 
   '@ai-sdk/provider-utils@3.0.3':
     resolution: {integrity: sha512-kAxIw1nYmFW1g5TvE54ZB3eNtgZna0RnLjPUp1ltz1+t9xkXJIuDT4atrwfau9IbS0BOef38wqrI8CjFfQrxhw==}
@@ -2882,10 +2876,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@ai-sdk/groq@2.0.5(zod@3.25.76)':
+  '@ai-sdk/groq@2.0.10(zod@3.25.76)':
     dependencies:
       '@ai-sdk/provider': 2.0.0
-      '@ai-sdk/provider-utils': 3.0.1(zod@3.25.76)
+      '@ai-sdk/provider-utils': 3.0.3(zod@3.25.76)
       zod: 3.25.76
 
   '@ai-sdk/mistral@2.0.5(zod@3.25.76)':
@@ -2900,14 +2894,6 @@ snapshots:
       nanoid: 3.3.11
       secure-json-parse: 2.7.0
       zod: 3.25.76
-
-  '@ai-sdk/provider-utils@3.0.1(zod@3.25.76)':
-    dependencies:
-      '@ai-sdk/provider': 2.0.0
-      '@standard-schema/spec': 1.0.0
-      eventsource-parser: 3.0.3
-      zod: 3.25.76
-      zod-to-json-schema: 3.24.6(zod@3.25.76)
 
   '@ai-sdk/provider-utils@3.0.3(zod@3.25.76)':
     dependencies:
@@ -4221,7 +4207,7 @@ snapshots:
 
   '@types/cors@2.8.19':
     dependencies:
-      '@types/node': 24.2.1
+      '@types/node': 24.3.0
 
   '@types/diff-match-patch@1.0.36': {}
 
@@ -4231,7 +4217,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
-      '@types/node': 24.2.1
+      '@types/node': 24.3.0
       '@types/qs': 6.14.0
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.5
