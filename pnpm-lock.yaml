@@ -68,10 +68,10 @@ importers:
         version: 24.3.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.39.0
-        version: 8.39.0(@typescript-eslint/parser@8.39.1(eslint@9.24.0)(typescript@5.9.2))(eslint@9.24.0)(typescript@5.9.2)
+        version: 8.39.0(@typescript-eslint/parser@8.40.0(eslint@9.24.0)(typescript@5.9.2))(eslint@9.24.0)(typescript@5.9.2)
       '@typescript-eslint/parser':
-        specifier: ^8.39.1
-        version: 8.39.1(eslint@9.24.0)(typescript@5.9.2)
+        specifier: ^8.40.0
+        version: 8.40.0(eslint@9.24.0)(typescript@5.9.2)
       eslint-config-prettier:
         specifier: ^10.1.8
         version: 10.1.8(eslint@9.24.0)
@@ -4580,10 +4580,10 @@ snapshots:
     dependencies:
       '@types/node': 24.3.0
 
-  '@typescript-eslint/eslint-plugin@8.39.0(@typescript-eslint/parser@8.39.1(eslint@9.24.0)(typescript@5.9.2))(eslint@9.24.0)(typescript@5.9.2)':
+  '@typescript-eslint/eslint-plugin@8.39.0(@typescript-eslint/parser@8.40.0(eslint@9.24.0)(typescript@5.9.2))(eslint@9.24.0)(typescript@5.9.2)':
     dependencies:
       '@eslint-community/regexpp': 4.12.1
-      '@typescript-eslint/parser': 8.39.1(eslint@9.24.0)(typescript@5.9.2)
+      '@typescript-eslint/parser': 8.40.0(eslint@9.24.0)(typescript@5.9.2)
       '@typescript-eslint/scope-manager': 8.39.0
       '@typescript-eslint/type-utils': 8.39.0(eslint@9.24.0)(typescript@5.9.2)
       '@typescript-eslint/utils': 8.39.0(eslint@9.24.0)(typescript@5.9.2)
@@ -4649,8 +4649,17 @@ snapshots:
 
   '@typescript-eslint/project-service@8.39.1(typescript@5.9.2)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.39.1(typescript@5.9.2)
-      '@typescript-eslint/types': 8.39.1
+      '@typescript-eslint/tsconfig-utils': 8.40.0(typescript@5.9.2)
+      '@typescript-eslint/types': 8.40.0
+      debug: 4.4.1
+      typescript: 5.9.2
+    transitivePeerDependencies:
+      - supports-color
+
+  '@typescript-eslint/project-service@8.40.0(typescript@5.9.2)':
+    dependencies:
+      '@typescript-eslint/tsconfig-utils': 8.40.0(typescript@5.9.2)
+      '@typescript-eslint/types': 8.40.0
       debug: 4.4.1
       typescript: 5.9.2
     transitivePeerDependencies:
