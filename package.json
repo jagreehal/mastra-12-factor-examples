@@ -34,7 +34,7 @@
     "@types/inquirer": "^9.0.8",
     "dotenv": "^17.2.1",
     "express": "^5.1.0",
-    "inquirer": "^12.9.3",
+    "inquirer": "^12.9.4",
     "ollama-ai-provider": "^1.2.0",
     "zod": "^3.25.76"
   },
