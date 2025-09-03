@@ -272,7 +272,7 @@ async function demonstrateStructuredTools() {
     console.log(`\n❓ Question: "${scenario.question}"`);
     console.log('🧠 Processing...');
 
-    const result = await agent.generate(scenario.question);
+    const result = await agent.generateVNext(scenario.question);
     console.log(`\n💬 Agent Response: ${result.text}`);
 
     // Find the expected tool result

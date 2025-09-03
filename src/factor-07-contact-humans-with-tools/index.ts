@@ -265,7 +265,7 @@ async function demonstrateScenarios() {
     console.log('🤖 Agent processing request...');
 
     // Generate response using agent with human tools
-    const result = await agent.generate(scenario.userRequest);
+    const result = await agent.generateVNext(scenario.userRequest);
 
     console.log(`\n💬 Agent Response: ${result.text}`);
 

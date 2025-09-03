@@ -195,7 +195,7 @@ CURRENT QUESTION: ${testQuestion}`;
     console.log(`\n❓ Question: "${testQuestion}"`);
     console.log('🧠 Processing with context strategy...');
 
-    const result = await agent.generate(promptWithContext);
+    const result = await agent.generateVNext(promptWithContext);
     console.log(`💬 Response: ${result.text}`);
   }
 }

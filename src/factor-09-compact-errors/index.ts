@@ -294,7 +294,7 @@ async function demonstrateErrorHandling() {
     console.log('🤖 Agent processing with error-prone tools...');
 
     try {
-      const result = await errorHandlingAgent.generate(scenario.userRequest);
+      const result = await errorHandlingAgent.generateVNext(scenario.userRequest);
 
       console.log(`\n💬 Agent Response: ${result.text}`);
 

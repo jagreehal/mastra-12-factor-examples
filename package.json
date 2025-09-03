@@ -24,34 +24,34 @@
   "author": "Jag Reehal",
   "license": "ISC",
   "dependencies": {
-    "@ai-sdk/groq": "^2.0.14",
-    "@ai-sdk/mistral": "^2.0.5",
-    "@inquirer/prompts": "^7.8.3",
-    "@mastra/core": "^0.13.2",
-    "@mastra/libsql": "^0.13.4",
-    "@mastra/memory": "^0.12.2",
+    "ai-sdk-ollama": "^0.5.4",
+    "@ai-sdk/groq": "^2.0.16",
+    "@ai-sdk/mistral": "^2.0.12",
+    "@inquirer/prompts": "^7.8.4",
+    "@mastra/core": "^0.15.2",
+    "@mastra/libsql": "^0.13.7",
+    "@mastra/memory": "^0.14.2",
     "@types/express": "^5.0.3",
-    "@types/inquirer": "^9.0.8",
-    "dotenv": "^17.2.1",
+    "@types/inquirer": "^9.0.9",
+    "dotenv": "^17.2.2",
     "express": "^5.1.0",
     "inquirer": "^12.9.4",
-    "ollama-ai-provider": "^1.2.0",
-    "zod": "^3.25.76"
+    "zod": "^4.1.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.34.0",
-    "@ianvs/prettier-plugin-sort-imports": "^4.6.2",
+    "@ianvs/prettier-plugin-sort-imports": "^4.7.0",
     "@total-typescript/ts-reset": "^0.6.1",
     "@total-typescript/tsconfig": "^1.0.4",
     "@types/eslint-config-prettier": "^6.11.3",
     "@types/node": "^24.3.0",
-    "@typescript-eslint/eslint-plugin": "^8.39.0",
-    "@typescript-eslint/parser": "^8.40.0",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-unicorn": "^60.0.0",
     "prettier": "^3.6.2",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.40.0"
+    "typescript-eslint": "^8.42.0"
   }
 }

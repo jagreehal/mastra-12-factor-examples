@@ -60,29 +60,29 @@ The example demonstrates four different composition patterns:
 ```typescript
 // Complete pipeline: All four agents
 async function runCompleteChain(input: string) {
-  const analysis = await analysisAgent.generate(input);
-  const plan = await planningAgent.generate(analysis.text);
-  const execution = await executionAgent.generate(plan.text);
-  const review = await reviewAgent.generate(execution.text);
+  const analysis = await analysisagent.generateVNext(input);
+  const plan = await planningagent.generateVNext(analysis.text);
+  const execution = await executionagent.generateVNext(plan.text);
+  const review = await reviewagent.generateVNext(execution.text);
   return review.text;
 }
 
 // Planning focus: Single agent
 async function runPlanningOnly(input: string) {
-  return await planningAgent.generate(input);
+  return await planningagent.generateVNext(input);
 }
 
 // Analysis + Review: Two-agent chain
 async function runAnalysisReview(input: string) {
-  const analysis = await analysisAgent.generate(input);
-  const review = await reviewAgent.generate(analysis.text);
+  const analysis = await analysisagent.generateVNext(input);
+  const review = await reviewagent.generateVNext(analysis.text);
   return review.text;
 }
 
 // Execution + Review: Two-agent chain
 async function runExecutionReview(input: string) {
-  const execution = await executionAgent.generate(input);
-  const review = await reviewAgent.generate(execution.text);
+  const execution = await executionagent.generateVNext(input);
+  const review = await reviewagent.generateVNext(execution.text);
   return review.text;
 }
 ```
@@ -232,11 +232,11 @@ const analysisAgent = new Agent({
 ```typescript
 // Agents can be combined in different ways based on needs
 const workflows = {
-  analysis: () => analysisAgent.generate(input),
-  planning: () => planningAgent.generate(input),
+  analysis: () => analysisagent.generateVNext(input),
+  planning: () => planningagent.generateVNext(input),
   complete: async () => {
-    const analysis = await analysisAgent.generate(input);
-    const plan = await planningAgent.generate(analysis.text);
+    const analysis = await analysisagent.generateVNext(input);
+    const plan = await planningagent.generateVNext(analysis.text);
     return plan.text;
   }
 };
@@ -261,10 +261,10 @@ Each agent develops expertise in its domain:
 
 ```typescript
 const fourStageWorkflow = async (input: string) => {
-  const analysis = await analysisAgent.generate(input);
-  const plan = await planningAgent.generate(analysis.text);
-  const execution = await executionAgent.generate(plan.text);
-  const review = await reviewAgent.generate(execution.text);
+  const analysis = await analysisagent.generateVNext(input);
+  const plan = await planningagent.generateVNext(analysis.text);
+  const execution = await executionagent.generateVNext(plan.text);
+  const review = await reviewagent.generateVNext(execution.text);
   return {
     analysis: analysis.text,
     plan: plan.text,
@@ -280,12 +280,12 @@ const fourStageWorkflow = async (input: string) => {
 const routeToAppropriateAgent = async (input: string, workflowType: string) => {
   switch (workflowType) {
     case 'analysis-only':
-      return await analysisAgent.generate(input);
+      return await analysisagent.generateVNext(input);
     case 'planning-focus':
-      return await planningAgent.generate(input);
+      return await planningagent.generateVNext(input);
     case 'execution-review':
-      const execution = await executionAgent.generate(input);
-      return await reviewAgent.generate(execution.text);
+      const execution = await executionagent.generateVNext(input);
+      return await reviewagent.generateVNext(execution.text);
     default:
       return await runCompleteChain(input);
   }
@@ -298,9 +298,9 @@ const routeToAppropriateAgent = async (input: string, workflowType: string) => {
 // Multiple agents can provide different perspectives on the same input
 const multiPerspectiveAnalysis = async (input: string) => {
   const [analysis, planning, review] = await Promise.all([
-    analysisAgent.generate(input),
-    planningAgent.generate(input),
-    reviewAgent.generate(input)
+    analysisagent.generateVNext(input),
+    planningagent.generateVNext(input),
+    reviewagent.generateVNext(input)
   ]);
 
   return {
@@ -330,13 +330,13 @@ const multiPerspectiveAnalysis = async (input: string) => {
 const debugWorkflow = async (input: string) => {
   try {
     console.log('Starting analysis...');
-    const analysis = await analysisAgent.generate(input);
+    const analysis = await analysisagent.generateVNext(input);
 
     console.log('Starting planning...');
-    const plan = await planningAgent.generate(analysis.text);
+    const plan = await planningagent.generateVNext(analysis.text);
 
     console.log('Starting execution...');
-    const execution = await executionAgent.generate(plan.text);
+    const execution = await executionagent.generateVNext(plan.text);
 
     return execution.text;
   } catch (error) {
@@ -351,14 +351,14 @@ const debugWorkflow = async (input: string) => {
 // Test each agent in isolation
 describe('AnalysisAgent', () => {
   it('should break down complex problems into key elements', async () => {
-    const result = await analysisAgent.generate('Complex problem description');
+    const result = await analysisagent.generateVNext('Complex problem description');
     expect(result.text).toContain('Key elements identified:');
   });
 });
 
 describe('PlanningAgent', () => {
   it('should create structured plans with dependencies', async () => {
-    const result = await planningAgent.generate('Analysis output');
+    const result = await planningagent.generateVNext('Analysis output');
     expect(result.text).toContain('Dependencies:');
   });
 });

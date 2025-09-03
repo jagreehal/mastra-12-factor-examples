@@ -366,7 +366,7 @@ Processed 3 events simultaneously
 // Same agent processes all event types consistently
 const processAnyEvent = async (source: string, eventType: string, data: any) => {
   const prompt = `Process ${eventType} event from ${source}: ${JSON.stringify(data)}`;
-  return await agent.generate(prompt);
+  return await agent.generateVNext(prompt);
 };
 ```
 
@@ -378,7 +378,7 @@ const processAnyEvent = async (source: string, eventType: string, data: any) => 
 
 ```typescript
 // Events are processed using structured tools
-const eventResult = await agent.generate('Handle emergency system alert', {
+const eventResult = await agent.generateVNext('Handle emergency system alert', {
   tools: [processEventTool, logEventTool]
 });
 ```
@@ -392,9 +392,9 @@ const eventResult = await agent.generate('Handle emergency system alert', {
 ```typescript
 // Multiple events processed simultaneously
 const results = await Promise.all([
-  agent.generate(event1),
-  agent.generate(event2),
-  agent.generate(event3)
+  agent.generateVNext(event1),
+  agent.generateVNext(event2),
+  agent.generateVNext(event3)
 ]);
 ```
 
@@ -412,7 +412,7 @@ app.post('/webhook/:eventType', async (req, res) => {
     const { eventType } = req.params;
     const eventData = req.body;
 
-    const result = await agent.generate(
+    const result = await agent.generateVNext(
       `Process ${eventType} webhook event: ${JSON.stringify(eventData)}`
     );
 
@@ -435,7 +435,7 @@ app.post('/webhook/:eventType', async (req, res) => {
 messageQueue.subscribe('agent-events', async (message) => {
   const { eventType, source, data } = JSON.parse(message);
 
-  const result = await agent.generate(
+  const result = await agent.generateVNext(
     `Process ${eventType} from ${source}: ${JSON.stringify(data)}`
   );
 
@@ -454,7 +454,7 @@ messageQueue.subscribe('agent-events', async (message) => {
 cron.schedule('0 */6 * * *', async () => {
   const reportData = await generateDailyMetrics();
 
-  const result = await agent.generate(
+  const result = await agent.generateVNext(
     `Process daily_report from scheduler: ${JSON.stringify(reportData)}`
   );
 
@@ -469,7 +469,7 @@ cron.schedule('0 */6 * * *', async () => {
 database.on('change', async (changeEvent) => {
   const { table, operation, record } = changeEvent;
 
-  const result = await agent.generate(
+  const result = await agent.generateVNext(
     `Process database_${operation} from ${table}: ${JSON.stringify(record)}`
   );
 
@@ -490,7 +490,7 @@ fs.watch('./uploads', async (eventType, filename) => {
     const filePath = path.join('./uploads', filename);
     const stats = await fs.promises.stat(filePath);
 
-    const result = await agent.generate(
+    const result = await agent.generateVNext(
       `Process file_uploaded from filesystem: ${JSON.stringify({
         filename,
         size: stats.size,
@@ -557,7 +557,7 @@ describe('Event Processing Agent', () => {
 
   testCases.forEach(({ source, type, data }) => {
     it(`should process ${type} from ${source}`, async () => {
-      const result = await agent.generate(
+      const result = await agent.generateVNext(
         `Process ${type} from ${source}: ${JSON.stringify(data)}`
       );
 
@@ -580,7 +580,7 @@ class EventRouter {
 
     if (priority === 'high') {
       // Process immediately
-      return await this.agent.generate(context);
+      return await this.agent.generateVNext(context);
     } else {
       // Queue for batch processing
       return await this.queueForProcessing(context);

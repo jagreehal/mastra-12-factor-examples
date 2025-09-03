@@ -52,7 +52,7 @@ async function demonstrateFactor1(userQuestion: string) {
   console.log(`\n📝 User Question: "${userQuestion}"`);
   console.log('🧠 LLM Processing: Converting natural language to tool call...');
 
-  const result = await agent.generate(userQuestion);
+  const result = await agent.generateVNext(userQuestion);
 
   console.log(`\n💬 Agent Response: ${result.text}`);
 

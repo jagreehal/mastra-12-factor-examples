@@ -202,7 +202,7 @@ async function demonstrateUnifiedState() {
     await captureStateSnapshot(`Before ${scenario.name}`);
 
     // Execute with unified state
-    const result = await agent.generate(scenario.message, {
+    const result = await agent.generateVNext(scenario.message, {
       threadId,
       resourceId,
     });
@@ -265,7 +265,7 @@ async function demonstrateStateConsistency() {
 
   // First interaction - set business state
   console.log('\n1️⃣ First Interaction:');
-  const result1 = await agent.generate("My name is Alex and I work in engineering", {
+  const result1 = await agent.generateVNext("My name is Alex and I work in engineering", {
     threadId,
     resourceId,
   });
@@ -273,7 +273,7 @@ async function demonstrateStateConsistency() {
 
   // Second interaction - set more business state
   console.log('\n2️⃣ Second Interaction:');
-  const result2 = await agent.generate("Save my language preference as Spanish", {
+  const result2 = await agent.generateVNext("Save my language preference as Spanish", {
     threadId,
     resourceId,
   });
@@ -281,7 +281,7 @@ async function demonstrateStateConsistency() {
 
   // Third interaction - execution state
   console.log('\n3️⃣ Third Interaction:');
-  const result3 = await agent.generate("Calculate 100 divided by 5", {
+  const result3 = await agent.generateVNext("Calculate 100 divided by 5", {
     threadId,
     resourceId,
   });
@@ -289,7 +289,7 @@ async function demonstrateStateConsistency() {
 
   // Fourth interaction - retrieve all state
   console.log('\n4️⃣ Fourth Interaction (State Retrieval):');
-  const result4 = await agent.generate("Tell me my name, my language preference, and what calculation we just did", {
+  const result4 = await agent.generateVNext("Tell me my name, my language preference, and what calculation we just did", {
     threadId,
     resourceId,
   });

@@ -214,7 +214,7 @@ async function triggerAgentFromSource(source: TriggerSource): Promise<void> {
     console.log(`Event Data:`, JSON.stringify(event.eventData, null, 2));
 
     // Trigger the agent
-    const result = await eventProcessorAgent.generate(event.prompt);
+    const result = await eventProcessorAgent.generateVNext(event.prompt);
 
     console.log(`Agent Response: ${result.text}`);
 
@@ -270,7 +270,7 @@ async function demonstrateConcurrentTriggers(): Promise<void> {
       console.log(`Source: ${event.source}`);
       console.log(`Type: ${event.eventType}`);
 
-      const result = await eventProcessorAgent.generate(event.prompt);
+      const result = await eventProcessorAgent.generateVNext(event.prompt);
       return {
         event,
         result: result.text,
@@ -324,7 +324,7 @@ async function demonstrateTriggerFlexibility(): Promise<void> {
     console.log(`Event Type: ${scenario.eventType}`);
 
     try {
-      const result = await eventProcessorAgent.generate(scenario.prompt);
+      const result = await eventProcessorAgent.generateVNext(scenario.prompt);
       console.log(`Agent Response: ${result.text}`);
 
       if (result.toolResults && result.toolResults.length > 0) {

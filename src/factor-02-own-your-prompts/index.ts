@@ -58,7 +58,7 @@ class BlackBoxAgent {
   }
 
   async ask(question: string) {
-    return await this.agent.generate(question);
+    return await this.agent.generateVNext(question);
   }
 }
 
@@ -139,7 +139,7 @@ const PromptEvaluator = {
 
   async measurePerformance(agent: Agent, question: string): Promise<PromptMetrics> {
     const startTime = Date.now();
-    const response = await agent.generate(question);
+    const response = await agent.generateVNext(question);
     const endTime = Date.now();
 
     return {
@@ -228,7 +228,7 @@ async function demonstrateExplicitPrompts() {
     const agent = createDeploymentAgent(version);
 
     console.log(`\n💬 Question: "${deploymentQuestion}"`);
-    const response = await agent.generate(deploymentQuestion);
+    const response = await agent.generateVNext(deploymentQuestion);
     console.log(`\n🤖 Response with ${version}:`);
     console.log(response.text);
     console.log('\n' + '─'.repeat(60));
@@ -250,12 +250,12 @@ async function demonstratePromptEvolution() {
   // Compare v1 (basic) vs v3 (production-ready)
   console.log('\n--- Response with v1 (basic) ---');
   const v1Agent = createDeploymentAgent('v1');
-  const v1Response = await v1Agent.generate(specificQuestion);
+  const v1Response = await v1Agent.generateVNext(specificQuestion);
   console.log(v1Response.text);
 
   console.log('\n--- Response with v3 (production-ready) ---');
   const v3Agent = createDeploymentAgent('v3');
-  const v3Response = await v3Agent.generate(specificQuestion);
+  const v3Response = await v3Agent.generateVNext(specificQuestion);
   console.log(v3Response.text);
 
   console.log('\n💡 Key Insight: Because we own the prompts, we can:');
@@ -283,7 +283,7 @@ async function demonstrateTestingPrompts() {
 
     // Test with v3 (our best prompt)
     const agent = createDeploymentAgent('v3');
-    const response = await agent.generate(testCase);
+    const response = await agent.generateVNext(testCase);
 
     // Check if response includes key safety elements
     const hasRiskAssessment = response.text.toLowerCase().includes('risk');
@@ -311,7 +311,7 @@ async function demonstrateTemplatedPrompts() {
     const agent = createTemplatedAgent(env, service);
 
     console.log(`\n💬 Question: "${question}"`);
-    const response = await agent.generate(question);
+    const response = await agent.generateVNext(question);
     console.log(`\n🤖 Response for ${env}:`);
     console.log(response.text);
     console.log('\n' + '─'.repeat(60));

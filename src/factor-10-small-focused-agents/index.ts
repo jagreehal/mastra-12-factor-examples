@@ -117,7 +117,7 @@ async function runAgentChain(topic: string, agents: Agent[]): Promise<void> {
     console.log(`Input: ${currentInput}`);
 
     try {
-      const result = await agent.generate(currentInput);
+      const result = await agent.generateVNext(currentInput);
       console.log(`Output: ${result.text}`);
 
       // Log any tool usage
@@ -199,7 +199,7 @@ async function demonstrateAgentSpecialization(): Promise<void> {
     for (const { agent, role } of agents) {
       console.log(`\n${role} perspective:`);
       try {
-        const result = await agent.generate(topic);
+        const result = await agent.generateVNext(topic);
         console.log(`${result.text.slice(0, 150)}...`);
       } catch (error) {
         console.error(`Error in ${agent.name}:`, error instanceof Error ? error.message : error);
@@ -231,7 +231,7 @@ async function demonstrateFocusedVsUnfocused(): Promise<void> {
   // Show unfocused agent response
   console.log('\n❌ Unfocused Agent Response:');
   try {
-    const unfocusedResult = await unfocusedAgent.generate(testTopic);
+    const unfocusedResult = await unfocusedAgent.generateVNext(testTopic);
     console.log(unfocusedResult.text);
   } catch (error) {
     console.error('Error with unfocused agent:', error instanceof Error ? error.message : error);
