@@ -6,6 +6,8 @@ This example demonstrates [**Factor 3: Own Your Context Window** ](https://githu
 
 This principle emphasises having explicit control over what information gets included in the LLM's context window rather than relying on framework abstractions.
 
+![Factor 3](./factor-03.gif)
+
 ## What Factor 3 Means
 
 Factor 3 establishes that developers must maintain explicit control over context window management. The context window represents a limited, valuable resource that directly influences LLM behaviour. Rather than allowing frameworks to automatically manage context, you should deliberately curate what conversation history and contextual information to include.
