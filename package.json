@@ -26,7 +26,7 @@
   "dependencies": {
     "ai-sdk-ollama": "^0.5.4",
     "@ai-sdk/groq": "^2.0.16",
-    "@ai-sdk/mistral": "^2.0.12",
+    "@ai-sdk/mistral": "^2.0.13",
     "@inquirer/prompts": "^7.8.4",
     "@mastra/core": "^0.15.2",
     "@mastra/libsql": "^0.13.7",
