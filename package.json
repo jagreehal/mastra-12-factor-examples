@@ -28,7 +28,7 @@
     "@ai-sdk/groq": "^2.0.16",
     "@ai-sdk/mistral": "^2.0.12",
     "@inquirer/prompts": "^7.8.4",
-    "@mastra/core": "^0.15.2",
+    "@mastra/core": "^0.15.3",
     "@mastra/libsql": "^0.13.7",
     "@mastra/memory": "^0.14.2",
     "@types/express": "^5.0.3",
