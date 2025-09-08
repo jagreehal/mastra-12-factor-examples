@@ -25,7 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "ai-sdk-ollama": "^0.5.4",
-    "@ai-sdk/groq": "^2.0.16",
+    "@ai-sdk/groq": "^2.0.17",
     "@ai-sdk/mistral": "^2.0.12",
     "@inquirer/prompts": "^7.8.4",
     "@mastra/core": "^0.15.2",
